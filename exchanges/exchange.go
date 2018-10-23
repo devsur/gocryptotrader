@@ -93,6 +93,8 @@ type Base struct {
 	Verbose                                    bool
 	RESTPollingDelay                           time.Duration
 	AuthenticatedAPISupport                    bool
+	APIWithdrawalSupport                       bool
+	AutomaticAPIWithdrawlSupport               bool
 	APIAuthPEMKeySupport                       bool
 	APISecret, APIKey, APIAuthPEMKey, ClientID string
 	Nonce                                      nonce.Nonce

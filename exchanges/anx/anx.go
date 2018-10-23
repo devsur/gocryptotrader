@@ -29,6 +29,7 @@ const (
 	anxCreateAddress   = "receive/create"
 	anxTicker          = "money/ticker"
 	anxDepth           = "money/depth/full"
+	anxAccount         = "account"
 
 	// ANX rate limites for authenticated and unauthenticated requests
 	anxAuthRate   = 0
@@ -47,6 +48,8 @@ func (a *ANX) SetDefaults() {
 	a.TakerFee = 0.6
 	a.MakerFee = 0.3
 	a.Verbose = false
+	a.APIWithdrawalSupport = true
+	a.AutomaticAPIWithdrawlSupport = false
 	a.RESTPollingDelay = 10
 	a.RequestCurrencyPairFormat.Delimiter = ""
 	a.RequestCurrencyPairFormat.Uppercase = true
@@ -404,4 +407,16 @@ func (a *ANX) SendAuthenticatedHTTPRequest(path string, params map[string]interf
 	headers["Content-Type"] = "application/json"
 
 	return a.SendPayload("POST", a.APIUrl+path, headers, bytes.NewBuffer(PayloadJSON), result, true, a.Verbose)
+}
+
+func (a *ANX) GetAccountInformation() {
+
+}
+
+func (a *ANX) CanWithdrawViaApi() (bool, bool) {
+	if !a.AutomaticAPIWithdrawlSupport {
+		log.Printf("")
+	}
+
+	return a.APIWithdrawalSupport, a.AutomaticAPIWithdrawlSupport
 }
