@@ -58,9 +58,10 @@ type CurrencyPair struct {
 // AccountInformation Used by Get account information
 // Retrieves details of the account and api's
 type AccountInformation struct {
-	UserUUid string   `json:"userUuid"`
-	Rights   []string `json:"Rights"`
-	Wallets  struct {
+	UserUUID   string   `json:"userUuid"`
+	Rights     []string `json:"Rights"`
+	ResultCode string   `json:"resultCode"`
+	Wallets    struct {
 		Balance              Amount `json:"Balance"`
 		AvailableBalance     Amount `json:"Available_Balance"`
 		DailyWithdrawalLimit Amount `json:"Daily_Withdrawal_Limit"`

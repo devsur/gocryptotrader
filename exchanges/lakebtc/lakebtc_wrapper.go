@@ -192,3 +192,14 @@ func (l *LakeBTC) WithdrawFiatExchangeFundsToInternationalBank(currency pair.Cur
 func (l *LakeBTC) GetWebsocket() (*exchange.Websocket, error) {
 	return nil, errors.New("not yet implemented")
 }
+
+// CanAutomaticallyWithdrawViaAPI checks if the exchange can withdraw without any additional verificantion
+// eg 2FA, email confirmation
+func (l *LakeBTC) CanAutomaticallyWithdrawViaAPI() (bool, error) {
+	return false, errors.New("not yet implemented")
+}
+
+// CanWithdrawViaAPI checks the permissions on the API keys to verify it can withdraw
+func (l *LakeBTC) CanWithdrawViaAPI() (bool, error) {
+	return false, errors.New("not yet implemented")
+}

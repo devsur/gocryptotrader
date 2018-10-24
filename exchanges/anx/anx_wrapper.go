@@ -249,3 +249,14 @@ func (a *ANX) WithdrawFiatExchangeFundsToInternationalBank(currency pair.Currenc
 func (a *ANX) GetWebsocket() (*exchange.Websocket, error) {
 	return nil, errors.New("not yet implemented")
 }
+
+// CanAutomaticallyWithdrawViaAPI checks if the exchange can withdraw without any additional verificantion
+// eg 2FA, email confirmation
+func (a *ANX) CanAutomaticallyWithdrawViaAPI() (bool, error) {
+	return a.CanAutomaticallyWithdraw()
+}
+
+// CanWithdrawViaAPI checks the permissions on the API keys to verify it can withdraw
+func (a *ANX) CanWithdrawViaAPI() (bool, error) {
+	return a.CheckAPIWithdrawPermission()
+}

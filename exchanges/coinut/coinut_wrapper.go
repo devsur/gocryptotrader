@@ -194,3 +194,14 @@ func (c *COINUT) WithdrawFiatExchangeFundsToInternationalBank(currency pair.Curr
 func (c *COINUT) GetWebsocket() (*exchange.Websocket, error) {
 	return c.Websocket, nil
 }
+
+// CanAutomaticallyWithdrawViaAPI checks if the exchange can withdraw without any additional verificantion
+// eg 2FA, email confirmation
+func (c *COINUT) CanAutomaticallyWithdrawViaAPI() (bool, error) {
+	return false, errors.New("not yet implemented")
+}
+
+// CanWithdrawViaAPI checks the permissions on the API keys to verify it can withdraw
+func (c *COINUT) CanWithdrawViaAPI() (bool, error) {
+	return false, errors.New("not yet implemented")
+}

@@ -255,3 +255,14 @@ func (k *Kraken) WithdrawFiatExchangeFundsToInternationalBank(currency pair.Curr
 func (k *Kraken) GetWebsocket() (*exchange.Websocket, error) {
 	return nil, errors.New("not yet implemented")
 }
+
+// CanAutomaticallyWithdrawViaAPI checks if the exchange can withdraw without any additional verificantion
+// eg 2FA, email confirmation
+func (k *Kraken) CanAutomaticallyWithdrawViaAPI() (bool, error) {
+	return false, errors.New("not yet implemented")
+}
+
+// CanWithdrawViaAPI checks the permissions on the API keys to verify it can withdraw
+func (k *Kraken) CanWithdrawViaAPI() (bool, error) {
+	return false, errors.New("not yet implemented")
+}

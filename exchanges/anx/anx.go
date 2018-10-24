@@ -48,7 +48,7 @@ func (a *ANX) SetDefaults() {
 	a.TakerFee = 0.6
 	a.MakerFee = 0.3
 	a.Verbose = false
-	a.APIWithdrawalSupport = true
+	a.APIWithdrawalPermission = false
 	a.AutomaticAPIWithdrawlSupport = false
 	a.RESTPollingDelay = 10
 	a.RequestCurrencyPairFormat.Delimiter = ""
@@ -409,14 +409,44 @@ func (a *ANX) SendAuthenticatedHTTPRequest(path string, params map[string]interf
 	return a.SendPayload("POST", a.APIUrl+path, headers, bytes.NewBuffer(PayloadJSON), result, true, a.Verbose)
 }
 
-func (a *ANX) GetAccountInformation() {
+func (a *ANX) GetAccountInformation() (AccountInformation, error) {
+	request := make(map[string]interface{})
 
+	var response AccountInformation
+
+	err := a.SendAuthenticatedHTTPRequest(anxOrderInfo, request, &response)
+
+	if err != nil {
+		return response, err
+	}
+
+	if response.ResultCode != "OK" {
+		log.Printf("Response code is not OK: %s\n", response.ResultCode)
+		return response, errors.New(response.ResultCode)
+	}
+	return response, nil
 }
 
-func (a *ANX) CanWithdrawViaApi() (bool, bool) {
+func (a *ANX) CheckAPIWithdrawPermission() (bool, error) {
 	if !a.AutomaticAPIWithdrawlSupport {
 		log.Printf("")
 	}
+	accountInfo, err := a.GetAccountInformation()
+	if err != nil {
+		return false, err
+	}
+	var apiAllowsWithdraw bool
+	for _, a := range accountInfo.Rights {
+		if a == "withdraw" {
+			log.Printf("API key is missing withdrawal permissions")
+			apiAllowsWithdraw = true
+		}
+	}
+	return apiAllowsWithdraw, nil
+}
 
-	return a.APIWithdrawalSupport, a.AutomaticAPIWithdrawlSupport
+func (a *ANX) CanAutomaticallyWithdraw() (bool, error) {
+	log.Printf("Please note that a confirmation email would be sent to you to confirm this withdrawal.")
+	log.Printf("If you would like this feature disabled on your account, you can visit our site and create a Fiat Express Withdrawal setting.")
+	return true, nil
 }

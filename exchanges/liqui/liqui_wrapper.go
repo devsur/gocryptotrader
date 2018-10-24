@@ -201,3 +201,14 @@ func (l *Liqui) WithdrawFiatExchangeFundsToInternationalBank(currency pair.Curre
 func (l *Liqui) GetWebsocket() (*exchange.Websocket, error) {
 	return nil, errors.New("not yet implemented")
 }
+
+// CanAutomaticallyWithdrawViaAPI checks if the exchange can withdraw without any additional verificantion
+// eg 2FA, email confirmation
+func (l *Liqui) CanAutomaticallyWithdrawViaAPI() (bool, error) {
+	return false, errors.New("not yet implemented")
+}
+
+// CanWithdrawViaAPI checks the permissions on the API keys to verify it can withdraw
+func (l *Liqui) CanWithdrawViaAPI() (bool, error) {
+	return false, errors.New("not yet implemented")
+}

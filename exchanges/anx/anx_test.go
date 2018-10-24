@@ -132,3 +132,7 @@ func TestGetAPIKey(t *testing.T) {
 		t.Error("Test Failed - ANX GetAPIKey() Incorrect")
 	}
 }
+
+func TestCanWithdrawViaApi(t *testing.T) {
+
+}

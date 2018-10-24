@@ -205,3 +205,14 @@ func (o *OKEX) WithdrawFiatExchangeFundsToInternationalBank(currency pair.Curren
 func (o *OKEX) GetWebsocket() (*exchange.Websocket, error) {
 	return o.Websocket, nil
 }
+
+// CanAutomaticallyWithdrawViaAPI checks if the exchange can withdraw without any additional verificantion
+// eg 2FA, email confirmation
+func (o *OKEX) CanAutomaticallyWithdrawViaAPI() (bool, error) {
+	return false, errors.New("not yet implemented")
+}
+
+// CanWithdrawViaAPI checks the permissions on the API keys to verify it can withdraw
+func (o *OKEX) CanWithdrawViaAPI() (bool, error) {
+	return false, errors.New("not yet implemented")
+}

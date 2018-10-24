@@ -193,3 +193,14 @@ func (y *Yobit) WithdrawFiatExchangeFundsToInternationalBank(currency pair.Curre
 func (y *Yobit) GetWebsocket() (*exchange.Websocket, error) {
 	return nil, errors.New("not yet implemented")
 }
+
+// CanAutomaticallyWithdrawViaAPI checks if the exchange can withdraw without any additional verificantion
+// eg 2FA, email confirmation
+func (y *Yobit) CanAutomaticallyWithdrawViaAPI() (bool, error) {
+	return false, errors.New("not yet implemented")
+}
+
+// CanWithdrawViaAPI checks the permissions on the API keys to verify it can withdraw
+func (y *Yobit) CanWithdrawViaAPI() (bool, error) {
+	return false, errors.New("not yet implemented")
+}

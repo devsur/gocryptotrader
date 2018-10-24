@@ -208,3 +208,14 @@ func (p *Poloniex) WithdrawFiatExchangeFundsToInternationalBank(currency pair.Cu
 func (p *Poloniex) GetWebsocket() (*exchange.Websocket, error) {
 	return p.Websocket, nil
 }
+
+// CanAutomaticallyWithdrawViaAPI checks if the exchange can withdraw without any additional verificantion
+// eg 2FA, email confirmation
+func (po *Poloniex) CanAutomaticallyWithdrawViaAPI() (bool, error) {
+	return false, errors.New("not yet implemented")
+}
+
+// CanWithdrawViaAPI checks the permissions on the API keys to verify it can withdraw
+func (po *Poloniex) CanWithdrawViaAPI() (bool, error) {
+	return false, errors.New("not yet implemented")
+}

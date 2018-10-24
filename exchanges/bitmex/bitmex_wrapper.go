@@ -197,3 +197,14 @@ func (b *Bitmex) WithdrawExchangeFiatFundsToInternationalBank(currency pair.Curr
 func (b *Bitmex) GetWebsocket() (*exchange.Websocket, error) {
 	return b.Websocket, nil
 }
+
+// CanAutomaticallyWithdrawViaAPI checks if the exchange can withdraw without any additional verificantion
+// eg 2FA, email confirmation
+func (b *Bitmex) CanAutomaticallyWithdrawViaAPI() (bool, error) {
+	return false, errors.New("not yet implemented")
+}
+
+// CanWithdrawViaAPI checks the permissions on the API keys to verify it can withdraw
+func (b *Bitmex) CanWithdrawViaAPI() (bool, error) {
+	return false, errors.New("not yet implemented")
+}
