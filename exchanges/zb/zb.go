@@ -343,3 +343,13 @@ func (z *ZB) SendAuthenticatedHTTPRequest(method, endpoint string, values url.Va
 		true,
 		z.Verbose)
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (z *ZB) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (z *ZB) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

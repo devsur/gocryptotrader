@@ -97,3 +97,13 @@ func (b *BTCC) Setup(exch config.ExchangeConfig) {
 func (b *BTCC) GetFee() float64 {
 	return b.Fee
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (b *BTCC) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (b *BTCC) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

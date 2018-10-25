@@ -330,3 +330,13 @@ func (c *COINUT) SendHTTPRequest(apiRequest string, params map[string]interface{
 
 	return c.SendPayload("POST", c.APIUrl, headers, bytes.NewBuffer(payload), result, authenticated, c.Verbose)
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (c *COINUT) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (c *COINUT) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

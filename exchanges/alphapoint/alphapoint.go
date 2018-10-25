@@ -552,3 +552,13 @@ func (a *Alphapoint) SendAuthenticatedHTTPRequest(method, path string, data map[
 
 	return a.SendPayload(method, path, headers, bytes.NewBuffer(PayloadJSON), result, true, a.Verbose)
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (a *Alphapoint) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (a *Alphapoint) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

@@ -176,3 +176,14 @@ func (a *Alphapoint) WithdrawFiatExchangeFunds(currency pair.CurrencyItem, amoun
 func (a *Alphapoint) GetWebsocket() (*exchange.Websocket, error) {
 	return nil, errors.New("not yet implemented")
 }
+
+// CanAutomaticallyWithdrawViaAPI checks if the exchange can withdraw without any additional verificantion
+// eg 2FA, email confirmation
+func (a *Alphapoint) CanAutomaticallyWithdrawViaAPI() (bool, error) {
+	return a.CanAutomaticallyWithdraw()
+}
+
+// CanWithdrawViaAPI checks the permissions on the API keys to verify it can withdraw
+func (a *Alphapoint) CanWithdrawViaAPI() (bool, error) {
+	return a.CheckAPIWithdrawPermission()
+}

@@ -934,3 +934,13 @@ func (b *Bitfinex) SendAuthenticatedHTTPRequest(method, path string, params map[
 	}
 	return nil
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (b *Bitfinex) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (b *Bitfinex) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

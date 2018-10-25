@@ -403,3 +403,13 @@ func (g *Gateio) SendAuthenticatedHTTPRequest(method, endpoint, param string, re
 
 	return g.SendPayload(method, url, headers, strings.NewReader(param), result, true, g.Verbose)
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (g *Gateio) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (g *Gateio) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

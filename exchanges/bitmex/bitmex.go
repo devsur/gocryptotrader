@@ -912,3 +912,13 @@ func (b *Bitmex) CaptureError(resp, reType interface{}) error {
 	}
 	return nil
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (b *Bitmex) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (b *Bitmex) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

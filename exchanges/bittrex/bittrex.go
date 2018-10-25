@@ -511,3 +511,13 @@ func (b *Bittrex) SendAuthenticatedHTTPRequest(path string, values url.Values, r
 
 	return b.SendPayload("GET", rawQuery, headers, nil, result, true, b.Verbose)
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (b *Bittrex) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (b *Bittrex) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

@@ -828,3 +828,13 @@ func (c *CoinbasePro) SendAuthenticatedHTTPRequest(method, path string, params m
 
 	return c.SendPayload(method, c.APIUrl+path, headers, bytes.NewBuffer(payload), result, true, c.Verbose)
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (c *CoinbasePro) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (c *CoinbasePro) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

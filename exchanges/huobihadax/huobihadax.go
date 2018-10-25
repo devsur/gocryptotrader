@@ -809,3 +809,13 @@ func (h *HUOBIHADAX) SendAuthenticatedHTTPRequest(method, endpoint string, value
 
 	return h.SendPayload(method, url, headers, bytes.NewBufferString(""), result, true, h.Verbose)
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (h *HUOBIHADAX) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (h *HUOBIHADAX) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

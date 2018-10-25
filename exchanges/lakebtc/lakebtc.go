@@ -352,3 +352,13 @@ func (l *LakeBTC) SendAuthenticatedHTTPRequest(method, params string, result int
 
 	return l.SendPayload("POST", l.APIUrl, headers, strings.NewReader(string(data)), result, true, l.Verbose)
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (l *LakeBTC) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (l *LakeBTC) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

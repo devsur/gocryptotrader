@@ -363,3 +363,13 @@ func (e *EXMO) SendAuthenticatedHTTPRequest(method, endpoint string, vals url.Va
 
 	return e.SendPayload(method, path, headers, strings.NewReader(payload), result, true, e.Verbose)
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (e *EXMO) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (e *EXMO) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

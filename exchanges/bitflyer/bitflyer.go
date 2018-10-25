@@ -385,3 +385,13 @@ func (b *Bitflyer) SendAuthHTTPRequest(path string, params url.Values, result in
 	headers["ACCESS-KEY"] = b.APIKey
 	headers["ACCESS-TIMESTAMP"] = strconv.FormatInt(int64(time.Now().UnixNano()), 10)
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (b *Bitflyer) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (b *Bitflyer) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

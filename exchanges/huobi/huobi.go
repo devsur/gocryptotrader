@@ -853,3 +853,13 @@ func (h *HUOBI) SendAuthenticatedHTTPRequest(method, endpoint string, values url
 
 	return h.SendPayload(method, url, headers, bytes.NewReader(body), result, true, h.Verbose)
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (h *HUOBI) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (h *HUOBI) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

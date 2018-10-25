@@ -891,3 +891,13 @@ func (p *Poloniex) SendAuthenticatedHTTPRequest(method, endpoint string, values 
 
 	return p.SendPayload(method, path, headers, bytes.NewBufferString(values.Encode()), result, true, p.Verbose)
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (p *Poloniex) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (p *Poloniex) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

@@ -376,3 +376,13 @@ func (i *ItBit) SendAuthenticatedHTTPRequest(method string, path string, params 
 
 	return i.SendPayload(method, url, headers, bytes.NewBuffer([]byte(PayloadJSON)), result, true, i.Verbose)
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (i *ItBit) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (i *ItBit) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

@@ -8,6 +8,12 @@ import (
 
 var anx ANX
 
+// Please supply your own keys here for due diligence testing
+const (
+	testAPIKey    = ""
+	testAPISecret = ""
+)
+
 func TestSetDefaults(t *testing.T) {
 	anx.SetDefaults()
 

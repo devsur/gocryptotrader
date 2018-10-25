@@ -564,3 +564,13 @@ func (b *Bithumb) SendAuthenticatedHTTPRequest(path string, params url.Values, r
 
 	return b.SendPayload("POST", b.APIUrl+path, headers, bytes.NewBufferString(payload), result, true, b.Verbose)
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (b *Bithumb) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (b *Bithumb) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

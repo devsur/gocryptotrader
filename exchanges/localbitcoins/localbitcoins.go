@@ -735,3 +735,13 @@ func (l *LocalBitcoins) SendAuthenticatedHTTPRequest(method, path string, params
 
 	return l.SendPayload(method, l.APIUrl+path, headers, strings.NewReader(encoded), result, true, l.Verbose)
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (l *LocalBitcoins) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (l *LocalBitcoins) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

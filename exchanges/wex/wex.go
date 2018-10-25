@@ -399,3 +399,13 @@ func (w *WEX) SendAuthenticatedHTTPRequest(method string, values url.Values, res
 		true,
 		w.Verbose)
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (w *WEX) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (w *WEX) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

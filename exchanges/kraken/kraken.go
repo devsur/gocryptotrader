@@ -852,3 +852,13 @@ func (k *Kraken) SendAuthenticatedHTTPRequest(method string, params url.Values, 
 
 	return k.SendPayload("POST", k.APIUrl+path, headers, strings.NewReader(encoded), result, true, k.Verbose)
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (k *Kraken) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (k *Kraken) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

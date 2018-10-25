@@ -315,3 +315,13 @@ func (l *Liqui) SendAuthenticatedHTTPRequest(method string, values url.Values, r
 		true,
 		l.Verbose)
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (l *Liqui) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (l *Liqui) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

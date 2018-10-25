@@ -496,3 +496,13 @@ func (g *Gemini) SendAuthenticatedHTTPRequest(method, path string, params map[st
 
 	return g.SendPayload(method, g.APIUrl+"/v1/"+path, headers, strings.NewReader(""), result, true, g.Verbose)
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (g *Gemini) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (g *Gemini) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

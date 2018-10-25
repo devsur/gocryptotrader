@@ -652,3 +652,13 @@ func (b *Binance) SetValues() {
 		TimeIntervalMonth,
 	}
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (b *Binance) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (b *Binance) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

@@ -560,3 +560,13 @@ func (b *Bitstamp) SendAuthenticatedHTTPRequest(path string, v2 bool, values url
 
 	return b.SendPayload("POST", path, headers, strings.NewReader(values.Encode()), result, true, b.Verbose)
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (b *Bitstamp) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (b *Bitstamp) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

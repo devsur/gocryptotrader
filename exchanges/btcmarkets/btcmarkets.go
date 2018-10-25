@@ -442,3 +442,13 @@ func (b *BTCMarkets) SendAuthenticatedRequest(reqType, path string, data interfa
 
 	return b.SendPayload(reqType, b.APIUrl+path, headers, bytes.NewBuffer(payload), result, true, b.Verbose)
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (b *BTCMarkets) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (b *BTCMarkets) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

@@ -358,3 +358,13 @@ func (y *Yobit) SendAuthenticatedHTTPRequest(path string, params url.Values, res
 
 	return y.SendPayload("POST", apiPrivateURL, headers, strings.NewReader(encoded), result, true, y.Verbose)
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (y *Yobit) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (y *Yobit) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

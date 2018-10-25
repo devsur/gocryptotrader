@@ -427,6 +427,7 @@ func (a *ANX) GetAccountInformation() (AccountInformation, error) {
 	return response, nil
 }
 
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
 func (a *ANX) CheckAPIWithdrawPermission() (bool, error) {
 	if !a.AutomaticAPIWithdrawlSupport {
 		log.Printf("")
@@ -445,6 +446,7 @@ func (a *ANX) CheckAPIWithdrawPermission() (bool, error) {
 	return apiAllowsWithdraw, nil
 }
 
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
 func (a *ANX) CanAutomaticallyWithdraw() (bool, error) {
 	log.Printf("Please note that a confirmation email would be sent to you to confirm this withdrawal.")
 	log.Printf("If you would like this feature disabled on your account, you can visit our site and create a Fiat Express Withdrawal setting.")

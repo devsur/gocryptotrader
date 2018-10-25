@@ -1027,3 +1027,13 @@ func (o *OKCoin) SetErrorDefaults() {
 		"20028": "No such contract",
 	}
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (o *OKCoin) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (o *OKCoin) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}

@@ -1107,3 +1107,13 @@ func (o *OKEX) CheckType(typeInput string) error {
 	}
 	return nil
 }
+
+// CheckAPIWithdrawPermission verifies if the supplied API keys have permission to withdraw funds
+func (o *OKEX) CheckAPIWithdrawPermission() (bool, error) {
+	return false, nil
+}
+
+// CanAutomaticallyWithdraw verifies if the exchange can automatically withdraw without a 2FA/email prompt
+func (o *OKEX) CanAutomaticallyWithdraw() (bool, error) {
+	return false, nil
+}
